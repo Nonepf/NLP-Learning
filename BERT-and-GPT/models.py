@@ -79,7 +79,7 @@ class TransformerLayer(nn.Module):
         return x
 
 class MiniBERT(nn.Module):
-    def __init__(self, vocab_size, d_model=256, num_heads=3, 
+    def __init__(self, vocab_size, d_model=256, num_heads=4, 
                  d_ff=512, n_layers=6, max_len=128, dropout=0.1):
         super().__init__()
         self.embed = nn.Embedding(vocab_size, d_model)
@@ -97,7 +97,7 @@ class MiniBERT(nn.Module):
         return self.head(self.norm(x))
 
 class MiniGPT(nn.Module):
-    def __init__(self, vocab_size, d_model=256, num_heads=3, d_ff=512, n_layers=6, max_len=128, dropout=0.1):
+    def __init__(self, vocab_size, d_model=256, num_heads=4, d_ff=512, n_layers=6, max_len=128, dropout=0.1):
         super().__init__()
         self.embed = nn.Embedding(vocab_size, d_model)
         self.pos = PositionalEncoding(d_model, max_len)
